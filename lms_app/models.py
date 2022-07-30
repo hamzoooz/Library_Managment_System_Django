@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
-    pass
+    name = models.Charfield(max_lenth=50)
+    
 class Book(models.Model):
-    pass
+    title = models.Charfield(max_lenth=50)
