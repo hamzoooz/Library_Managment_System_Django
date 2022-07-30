@@ -1,8 +1,33 @@
 from django.db import models
 
+
+# pip install pillow 
+#  python3 manage.py makemigrations   
+#  python3 manage.py migrate   
+
 # Create your models here.
 class Category(models.Model):
-    name = models.Charfield(max_lenth=50)
+    name = models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
     
 class Book(models.Model):
-    title = models.Charfield(max_lenth=50)
+    
+    status_book = [
+        ('availble', 'availble'),
+        ('rental', 'rental'),
+        ('sold', 'sold'),
+    ]
+    
+    title        = models.CharField(max_length=50)
+    auther       = models.CharField(max_length=250, null=True, blank=True)
+    photo_book   = models.ImageField(upload_to='photo', null=True, blank=True)
+    photo_auther = models.ImageField(upload_to='photo', null=True, blank=True )
+    pages        = models.IntegerField(null=True, blank=True )
+    retal_price_day = models.DecimalField(max_digits=7 ,decimal_places=2, null=True, blank=True )
+    retal_period = models.IntegerField(null=True, blank=True )
+    active       = models.BooleanField(default=True)
+    status       = models.CharField(max_length=50, choices = status_book,null=True, blank=True  )
+    category     = models.ForeignKey(Category, on_delete=models.PROTECT  , null=True, blank=True  )
+    def __str__(self):
+        return self.title
