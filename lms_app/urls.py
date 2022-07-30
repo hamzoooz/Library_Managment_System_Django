@@ -7,4 +7,7 @@ from . import views
 # URLPatterns = [
 urlpatterns = [
     path('', views.index , name="index"),
+    path('books', views.books , name="books"),
+    path('delete', views.delete , name="delete"),
+    path('update', views.update , name="update"),
 ]
