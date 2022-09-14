@@ -1,10 +1,5 @@
 from django.db import models
-
-
-# pip install pillow 
-#  python3 manage.py makemigrations   
-#  python3 manage.py migrate   
-
+   
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -13,7 +8,6 @@ class Category(models.Model):
         return self.name
     
 class Book(models.Model):
-    
     status_book = [
         ('availble', 'متاح'),
         ('rental', 'مستأجر'),
@@ -23,7 +17,7 @@ class Book(models.Model):
     title        = models.CharField(max_length=50)
     auther       = models.CharField(max_length=250, null=True, blank=True)
     # price        = models.DecimalField(max_digits=7 ,decimal_places=2, null=True, blank=True )
-    photo_book   = models.ImageField(upload_to='photo', null=True, blank=True)
+    # photo_book   = models.ImageField(upload_to='photo', null=True, blank=True, default='/media/photo/photo1.png')
     photo_auther = models.ImageField(upload_to='photo', null=True, blank=True )
     pages        = models.IntegerField(null=True, blank=True )
     retal_price_day = models.DecimalField(max_digits=7 ,decimal_places=2, null=True, blank=True )

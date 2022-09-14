@@ -86,13 +86,9 @@
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="card-body">
-                            <input type="text" class="form-control">
-                            <input type="text" class="form-control">
-                            <input type="text" class="form-control">
-                            <input type="text" class="form-control">
-                            <input type="text" class="form-control">
-                            <small id='totalrente' class="form-text text-muted"></small>
+                            {{ form }}
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
@@ -134,13 +130,13 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">تعديل</a>
-                                <a class="dropdown-item" href="#">حذف</a>
+                                <a class="dropdown-item" href="{% url 'update' book.id %}">تعديل</a>
+                                <a class="dropdown-item" href="{% url 'delete' book.id %}">حذف</a>
                                 <!-- Button trigger modal -->
                             </div>
                         </div>
 
-                        <div class="widget-user-header bg-info" style="background :url( {{ book.photo_book.url }}) ; background-size:cover ">
+                        <div class="widget-user-header bg-info" style="background:url({{book.photo_book.url}} ) ; background-size:cover ">
                             <h3 class="widget-user-username"> {{ book.title }} </h3>
                             <h5 class="widget-user-desc"> {{ book.auther }} </h5>
                         </div>

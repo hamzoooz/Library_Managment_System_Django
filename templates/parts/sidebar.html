@@ -2,7 +2,7 @@
 <aside style="position: fixed;" class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-        <span class="brand-text font-weight-light">NOUVIL</span>
+        <span class="brand-text font-weight-light">hamzoooz</span>
     </a>
 
     <!-- Sidebar -->
@@ -12,7 +12,7 @@
             <div class="image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Abdelrahman Gamal</a>
+                <a href="#" class="d-block">hamzoooz</a>
             </div>
         </div>
 
@@ -46,9 +46,8 @@
                             </a>
                         </li>
                         <form id="cat" method="POST">
-
-                            <input type="text" class="form-control">
-
+                            {% csrf_token %}
+                            {{ catform }}
                             <button type="submit" class="btn btn-success">save</button>
                             <button id="backcat" class="btn btn-primary ">back</button>
                         </form>
