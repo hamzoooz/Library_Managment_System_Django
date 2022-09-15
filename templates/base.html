@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{% static 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
     <!-- Theme style -->
     <link rel="stylesheet" href=" {% static 'dist/css/adminlte_ar.min.css' %} ">
-    <link rel="stylesheet" href=" {% static 'bootstrap/css/bootstrap.css' %} ">
+    <link rel="stylesheet" href=" {% static 'bootstrap/css/bootstrap.css' %}  ">
     <!-- Google Font: Source Sans Pro -->
     <link href=" {% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,70' %} " rel="stylesheet">
 </head>
@@ -59,8 +59,17 @@
         /*here i will make loop for get id category and status for contact with books */
         /*حساب اجمالي الارباح و هي عبارة عن حاصل جمع سعر الكتب عند البيع بالاضافة الى سعر استعارة الكتاب*/
     });
+
+{% for book in books %}
+$(".cat{{book.category.id}}").click(function(){
+    $(".book{{bookhide}}").hide()
+    $(".book{{book.category.id}}").show()
+});
+{% endfor %}
+
 </script>
 <script>
+
 
 
     $(function () {
@@ -161,7 +170,7 @@
             type: 'pie',
             data: {
                 datasets: [{
-                    data: ['35', '25', '40'],
+                    data: ['{{bookavailble}}', '{{bookslid}}', '{{bookrental}}'],
                     backgroundColor: ["#27c100", "#f3545d", "#fdaf4b"],
                     borderWidth: 10,
 

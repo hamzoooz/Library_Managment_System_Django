@@ -22,7 +22,7 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <p class="d-flex flex-column">
-                                        <span class="text-bold text-lg">500</span>
+                                        <span class="text-bold text-lg">{{ allbook }}</span>
                                         <span>اجمالي عدد الكتب</span>
                                     </p>
                                 </div>
@@ -106,7 +106,7 @@
                 <div class="col-4 ">
                     <ul class="nav">
                         {% for cat in category|slice:'4' %}
-                        <li class="nav-item ">
+                        <li class="nav-item cat-{{cat.id}}">
                             <a id="" class="nav-link bg-primary" href="#"> {{ cat.name }} </a>
                         </li>
                         {% endfor %}
@@ -119,7 +119,7 @@
                 {% for book in books %}
       
                 <!-- الكتب -->
-                <div id="" class="col-md-4">
+                <div id="" class="col-md-4 bookhide  book-{{book.category.id}}">
                     <!-- Widget: user widget style 1 -->
                     <div id="" class="card card-widget widget-user ">
                         <!-- Add the bg color to the header using any of the bg-* classes -->

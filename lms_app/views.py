@@ -17,7 +17,14 @@ def index(request):
         'category': Category.objects.all(),
         'books':    Book.objects.all(),
         'form' :    BookForm(),
-        'catform':  CategoreForm()
+        'catform':  CategoreForm(),
+        'allbook': Book.objects.filter(active=True).count(),
+        'bookslid': Book.objects.filter(status='sold').count(),
+        'bookrental': Book.objects.filter(status='rental').count(),
+        'bookavailble': Book.objects.filter(status='available').count(),
+        # 'bookslid': Book.objects.filter(status='تم البيع').count(),
+        # 'bookrental': Book.objects.filter(status='مستأجر').count(),
+        # 'bookavailble': Book.objects.filter(status='متاح').count(),
     }
     return render(request, 'pages/index.html', context)
  

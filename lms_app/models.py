@@ -8,10 +8,15 @@ class Category(models.Model):
         return self.name
     
 class Book(models.Model):
+    # status_book = [
+    #     ('availble', 'متاح'),
+    #     ('rental', 'مستأجر'),
+    #     ('sold', 'تم البيع'),
+    # ]
     status_book = [
-        ('availble', 'متاح'),
-        ('rental', 'مستأجر'),
-        ('sold', 'تم البيع'),
+        ('availble', 'availble'),
+        ('rental', 'rental'),
+        ('sold', 'sold'),
     ]
     
     title        = models.CharField(max_length=50)
