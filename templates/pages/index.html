@@ -19,7 +19,9 @@
                                     <h3 class="card-title">اجمالي عدد الكتب</h3>
                                 </div>
                             </div>
+
                             <div class="card-body">
+
                                 <div class="d-flex">
                                     <p class="d-flex flex-column">
                                         <span class="text-bold text-lg">{{ allbook }}</span>
@@ -31,7 +33,9 @@
                                 <div class="position-relative mb-4">
                                     <canvas id="visitors-chart" height="200"></canvas>
                                 </div>
+
                             </div>
+
                         </div>
                         <!-- /.card -->
                     </div>
@@ -85,6 +89,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
+
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="card-body">
@@ -103,9 +108,9 @@
             <!-- تصنيفات-->
 
             <div class="row justify-content-center mb-3">
-                <div class="col-4 ">
+                <div class="col-2 ">
                     <ul class="nav">
-                        {% for cat in category|slice:'4' %}
+                        {% for cat in category|slice:'2' %}
                         <li class="nav-item cat-{{cat.id}}">
                             <a id="" class="nav-link bg-primary" href="#"> {{ cat.name }} </a>
                         </li>
@@ -125,10 +130,7 @@
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <!-- قائمة منسدلة -->
                         <div style="position: absolute;" class="btn-group" >
-                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="sr-only">Toggle Dropdown</span> </button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{% url 'update' book.id %}">تعديل</a>
                                 <a class="dropdown-item" href="{% url 'delete' book.id %}">حذف</a>
@@ -137,40 +139,47 @@
                         </div>
 
                         <div class="widget-user-header bg-info" style="background:url({{book.photo_book.url}} ) ; background-size:cover ">
-                            <h3 class="widget-user-username"> {{ book.title }} </h3>
-                            <h5 class="widget-user-desc"> {{ book.auther }} </h5>
+                            <h4 class="widget-user-username  "  style='background: #0000008f;' > {{ book.title }} </h3>
+                            <h6 class="widget-user-desc  "  style='background: #0000008f;' > {{ book.auther }} </h5>
                         </div>
+
                         <div class="widget-user-image">
-                        {% if book.photo_auther  %}
+                            {% if book.photo_auther  %}
                             <img style="width:100px; height: 100px;" class="img-circle elevation-2" src="{{ book.photo_auther.url }}" alt="User Avatar">
+                            {% endif %}
                         </div>
-                        {% endif %}
+                        
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-sm-4 border-right">
+
+                                <div class="col-4 border-right">
+
                                     <div class="description-block">
                                         <h5 class="description-header"> {{ book.pages }} </h5>
                                         <span class="description-text">صفحة</span>
                                     </div>
                                     <!-- /.description-block -->
+
                                 </div>
                                 <!-- /.col -->
-                                <div class="col-sm-4 border-right">
+                                <div class="col-4 border-right">
+
                                     <div class="description-block">
-                                    {% if book.price  %}
-                                    <h5 class="description-header">${{ book.price }} </h5>
-                                    <span class="description-text">السعر</span>
-                                    {% elif book.retal_price_day  %}
-                                    <h5 class="description-header">${{ book.retal_price_day }} </h5>
-                                    <span class="description-text">في اليوم </span>
-                                    {% endif  %}
+                                        {% if book.price  %}
+                                            <h5 class="description-header">${{ book.price }} </h5>
+                                            <span class="description-text">السعر</span>
+                                        {% elif book.retal_price_day  %}
+                                            <h5 class="description-header">${{ book.retal_price_day }} </h5>
+                                            <span class="description-text">في اليوم </span>
+                                        {% endif  %}
 
 
                                     </div>
                                     <!-- /.description-block -->
                                 </div>
+
                                 <!-- /.col -->
-                                <div class="col-sm-4">
+                                <div class="col-4">
                                     <div class="description-block">
                                     {% if book.status == 'availble' %}
                                         <h5 class="description-header text-green">{{ book.status }}</h5>
@@ -184,9 +193,11 @@
                                     <!-- /.description-block -->
                                 </div>
                                 <!-- /.col -->
+
                             </div>
                             <!-- /.row -->
                         </div>
+
                     </div>
                     <!-- /.widget-user -->
                 </div>
@@ -199,6 +210,7 @@
                         <!--اضف صورة هنا في حالة عدم وجود كتب-->
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
